@@ -1,0 +1,127 @@
+* {
+    color: #30060e !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Courgette', sans-serif;
+    padding: 0 !important;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    background-color: #e5cacf !important;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.font-esthetic {
+    font-family: 'Sacramento', Tangerine !important;
+    color: #804953 !important;
+}
+
+.font-arabic {
+    font-family: 'Noto Naskh Arabic', serif !important;
+    color: #804953 !important;
+}
+
+.img-crop {
+    width: min(14rem, 90vw);
+    height: min(14rem, 90vw);
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.img-crop>img {
+    display: inline;
+    margin: 0 auto;
+    height: auto;
+    width: 100%;
+    /* filter: drop-shadow(2px 2px 6px #eee); */
+}
+
+.btn-music {
+    position: fixed;
+    bottom: 9vh;
+    right: 2vh;
+    z-index: 1055;
+}
+
+.loading-page {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e5cacf;
+    z-index: 1056 !important;
+}
+
+.card-body {
+    overflow-wrap: break-word !important;
+}
+
+.mouse-animation {
+    padding: 0.25rem 0.625rem;
+    height: 2rem;
+    border: 0.1rem solid #804953;
+    border-radius: 1.4rem;
+    opacity: 0.75;
+    box-sizing: content-box;
+}
+
+svg path {
+    fill: #e5cacf !important;
+    filter: drop-shadow(2px 4px 6px #e5cacf) drop-shadow(2px -4px 6px #e5cacf) drop-shadow(24px 25px 53px #f9f7f88f) drop-shadow(24px -25px 53px #f9f7f88f);
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+}
+
+.mouse-animation>.scroll-animation {
+    width: 0.25rem;
+    height: 0.625rem;
+    border-radius: 25%;
+    background-color: #804953;
+    animation-name: scroll;
+    animation-duration: 2.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.dark-section {
+    background-color: #e5cacf !important;
+    margin-top: -0.4rem;
+    margin-bottom: -0.4rem;
+}
+
+footer {
+    background-color: #e5cacf !important;
+    margin-top: -0.4rem;
+    padding-bottom: 4rem;
+}
+.samll-font h2{
+    font-size: 12px;
+}
