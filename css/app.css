@@ -11,7 +11,7 @@ body {
     padding: 0 !important;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    background-color: #e5cacf !important;
+    background-color: #EADBC8 !important;
 }
 
 body::-webkit-scrollbar {
@@ -62,7 +62,7 @@ body::-webkit-scrollbar {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-color: #e5cacf;
+    background-color: #EADBC8;
     z-index: 1056 !important;
 }
 
@@ -80,8 +80,8 @@ body::-webkit-scrollbar {
 }
 
 svg path {
-    fill: #e5cacf !important;
-    filter: drop-shadow(2px 4px 6px #e5cacf) drop-shadow(2px -4px 6px #e5cacf) drop-shadow(24px 25px 53px #f9f7f88f) drop-shadow(24px -25px 53px #f9f7f88f);
+    fill: #EADBC8 !important;
+    filter: drop-shadow(2px 4px 6px #EADBC8) drop-shadow(2px -4px 6px #EADBC8) drop-shadow(24px 25px 53px #f9f7f88f) drop-shadow(24px -25px 53px #f9f7f88f);
 }
 
 @keyframes scroll {
@@ -112,16 +112,21 @@ svg path {
 }
 
 .dark-section {
-    background-color: #e5cacf !important;
+    background-color: #EADBC8 !important;
     margin-top: -0.4rem;
     margin-bottom: -0.4rem;
 }
 
 footer {
-    background-color: #e5cacf !important;
+    background-color: #EADBC8 !important;
     margin-top: -0.4rem;
     padding-bottom: 4rem;
 }
 .samll-font h2{
     font-size: 12px;
+}
+
+.navigation-bar{
+    background-color: #ecd4b999;
+    backdrop-filter: blur(3px);
 }
