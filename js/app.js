@@ -643,6 +643,105 @@ const appLogic = (() => {
     }
   };
 
+  const setEnglishContent = () => {
+    const data = window.weddingData || {};
+
+    document.getElementById("weddingTitle").innerHTML = "Wedding Invitation";
+    document.getElementById("brideName").innerHTML = `${data.groom} & ${data.bride}`;
+    document.getElementById("saveDate").innerHTML = "Save The Date";
+
+    if (data.date) {
+      document.getElementById('dateTitle').innerText = formatDate(data.date);
+    }
+
+    document.getElementById("dateTitleMuslim").innerText = data.muslimDate || "Sunday, Dhuʻl-Qiʻdah 10, 1445";
+
+    document.getElementById("salamTitle").innerHTML = "Assalamualaikum Warahmatullahi Wabarakatuh";
+    document.getElementById("respectTitle").innerHTML = "With all due respect. We invite you and your family. Please attend our wedding event and give us opportunity to warmly serve you:";
+
+    document.getElementById("sonName").innerHTML = data.groom || "";
+    document.getElementById("sonFatherName").innerHTML = data.groomFather || ""; // data.groomFather might be empty?
+    document.getElementById("daughterName").innerHTML = data.bride || "";
+    document.getElementById("daughterFatherName").innerHTML = data.brideFather || "";
+
+    document.getElementById("saidTitle").innerHTML = "Allah Subhanahu Wa Ta'ala said";
+    document.getElementById("ayat").innerHTML = "And of His signs is that He created for you from yourselves mates that you may find tranquillity in them; and He placed between you affection and mercy. Indeed in that are signs for a people who give thought.";
+    document.getElementById("ayat21").innerHTML = "QS. Ar-Rum Ayat 21";
+
+    document.getElementById("eventTimeTitle").innerHTML = "Time to Event";
+    document.getElementById("dayTitle").innerHTML = "Days";
+    document.getElementById("hoursTitle").innerHTML = "Hours";
+    document.getElementById("minutesTitle").innerHTML = "Minutes";
+    document.getElementById("secondsTitle").innerHTML = "Seconds";
+
+    document.getElementById("organizeEventTitle").innerHTML = "By asking for the mercy and pleasure of Allah Subhanahu Wa Ta'ala,By Allah Ta'ala willing we will organize the event:";
+
+    document.getElementById("startAt").innerHTML = "Wedding start at";
+    document.getElementById("venue").innerHTML = "Venue";
+    document.getElementById("lookAtGoogle").innerHTML = "Look at Google Maps";
+    document.getElementById("location").innerHTML = data.venue || "Memon Jamatkhana, Vora Chowk, Una";
+
+    document.getElementById("greatingTitle").innerHTML = "It will be our pleasure and happiness to welcome your presence and your presence will be truly a pleasure for us.";
+    document.getElementById("returnSalam").innerHTML = "Wassalamualaikum Warahmatullahi Wabarakatuh";
+  };
+
+  const setGujaratiContent = () => {
+    const data = window.weddingData || {};
+
+    document.getElementById("weddingTitle").innerHTML = "લગ્નનું આમંત્રણ";
+
+    const groomGuj = data.groomGuj || "";
+    const brideGuj = data.brideGuj || "";
+    document.getElementById("brideName").innerHTML = `${groomGuj} <br>&<br> ${brideGuj}`;
+
+    document.getElementById("saveDate").innerHTML = "તારીખ સાચવવા માટે અહીં ક્લિક કરો";
+    document.getElementById("dateTitle").innerHTML = "રવિવાર, 19 મે, 2024"; // Fallback static? Or date logic? Keeping static as per original util.
+    // Ideally we should format date to Gujarati too, but keeping consistent with original code for now.
+
+    document.getElementById("dateTitleMuslim").innerHTML = data.muslimDate || "રવિવાર, 10 જિલકાદ, 1445";
+
+    document.getElementById("salamTitle").innerHTML = "અસલામુઅલૈકુમ વરહમતુલ્લાહી વબરકાતુહુ";
+    document.getElementById("respectTitle").innerHTML = "બધા યોગ્ય આદર સાથે. અમે તમને અને તમારા પરિવારને આમંત્રિત કરીએ છીએ. કૃપા કરીને અમારા લગ્ન પ્રસંગમાં હાજરી આપજો:";
+
+    document.getElementById("sonName").innerHTML = data.groomGuj ? `${data.groomGuj}` : "";
+    document.getElementById("sonFatherName").innerHTML = data.groomFatherGuj || "";
+    document.getElementById("daughterName").innerHTML = data.brideGuj ? `${data.brideGuj}` : "";
+    document.getElementById("daughterFatherName").innerHTML = data.brideFatherGuj || "";
+
+    document.getElementById("saidTitle").innerHTML = `અલ્લાહ સુબાનાહુ વા તા'આલા નુ ઇર્શાદ છે કે`;
+    document.getElementById("ayat").innerHTML = `અને તેની નિશાનીઓમાં એ છે કે તેણે તમારા માટે તમારામાંથી જોડી બનાવી, જેથી તમે તેમનામાં શાંતિ મેળવી શકો. અને તેણે તમારી વચ્ચે પ્રેમ અને દયા મૂકી. ખરેખર, આમાં વિચારનારા લોકો માટે ઘણી નિશાનીઓ છે.`;
+    document.getElementById("ayat21").innerHTML = `સુરહ અર-રૂમ: આયત ૨૧`;
+    document.getElementById("eventTimeTitle").innerHTML = `પ્રસંગનો સમય`;
+    document.getElementById("dayTitle").innerHTML = `દિવસ`;
+    document.getElementById("hoursTitle").innerHTML = `કલાક`;
+    document.getElementById("minutesTitle").innerHTML = `મિનિટ`;
+    document.getElementById("secondsTitle").innerHTML = `સેકન્ડ`;
+    document.getElementById("organizeEventTitle").innerHTML = `અલ્લાહ સુબાનાહુ વ તઆલાની દયા ઈચ્છાથી અમે ઇવેન્ટનું આયોજન કરીશું:`;
+    document.getElementById("startAt").innerHTML = `લગ્ન શરૂ થવાનો સમય`;
+    document.getElementById("venue").innerHTML = `લગ્નનું સરનામું`;
+    document.getElementById("lookAtGoogle").innerHTML = `ગૂગલ મેપ્સ માં લોકેશન જુઓ`;
+    document.getElementById("location").innerHTML = data.venueGuj || `મેમણ જમાતખાના, વોરા ચોક, ઉના`;
+    document.getElementById("greatingTitle").innerHTML = `અમને તમારો સાથ આવકાર કરવાનું અમારું સૌભાગ્ય અને સુખ હશે અને તમારી હાજરી અમારા માટે ખરેખર આનંદની વાત હશે.`;
+    document.getElementById("returnSalam").innerHTML = `વાલૈકુમસ્સલામ વરહમતુલ્લાહી વબરકાતુહુ`;
+  };
+
+  let isGujaratiMode = false;
+
+  const toggleLanguage = () => {
+    isGujaratiMode = !isGujaratiMode;
+    if (isGujaratiMode) {
+      setGujaratiContent();
+    } else {
+      setEnglishContent();
+    }
+  };
+
+  const editInvitation = () => {
+    // Go back to create mode (reload without params)
+    const baseUrl = window.location.href.split('?')[0];
+    window.location.href = baseUrl;
+  }
+
   const copyLink = () => {
     const url = window.location.href;
     navigator.clipboard.writeText(url).then(() => {
@@ -664,9 +763,23 @@ const appLogic = (() => {
       populateData(params);
 
       const hasGujaratiData = params.groomGuj || params.brideGuj;
+
+      // Welcome Screen Button
       const gujButton = document.querySelector('button[onclick="util.open(\'GUJ\')"]');
       if (gujButton) {
         gujButton.style.display = hasGujaratiData ? 'inline-block' : 'none';
+      }
+
+      // Floating Language Button
+      const langBtn = document.getElementById('language-button');
+      if (langBtn) {
+        langBtn.style.display = hasGujaratiData ? 'block' : 'none';
+      }
+
+      // Floating Edit Button
+      const editBtn = document.getElementById('edit-button');
+      if (editBtn) {
+        editBtn.style.display = 'block';
       }
 
     } else {
@@ -676,6 +789,12 @@ const appLogic = (() => {
 
       document.getElementById('welcome').style.display = 'none';
       document.getElementById('music-button').style.display = 'none';
+
+      const langBtn = document.getElementById('language-button');
+      if (langBtn) langBtn.style.display = 'none';
+
+      const editBtn = document.getElementById('edit-button');
+      if (editBtn) editBtn.style.display = 'none';
 
       document.body.style.overflowY = 'scroll';
 
@@ -720,29 +839,34 @@ const appLogic = (() => {
     }
 
     // Auto translate listeners
-    const pairs = [
-      ['groomNameInput', 'groomNameGujInput'],
-      ['brideNameInput', 'brideNameGujInput'],
-      ['groomFatherInput', 'groomFatherGujInput'],
-      ['brideFatherInput', 'brideFatherGujInput'],
-      ['venueInput', 'venueGujInput']
+    const inputs = [
+      { src: 'groomNameInput', tgt: 'groomNameGujInput' },
+      { src: 'brideNameInput', tgt: 'brideNameGujInput' },
+      { src: 'groomFatherInput', tgt: 'groomFatherGujInput' },
+      { src: 'brideFatherInput', tgt: 'brideFatherGujInput' },
+      // Venue is textarea
+      { src: 'venueInput', tgt: 'venueGujInput' }
     ];
 
-    pairs.forEach(([eng, guj]) => {
-      const engEl = document.getElementById(eng);
-      if (engEl) {
-        engEl.addEventListener('blur', () => autoTranslate(eng, guj));
+    inputs.forEach(pair => {
+      const el = document.getElementById(pair.src);
+      if (el) {
+        el.addEventListener('blur', () => autoTranslate(pair.src, pair.tgt));
       }
     });
+
+    // Add event listeners for radio buttons to update images immediately in form?
+    // No, requirement was just to select. Images update on generate.
   };
 
   return {
-    generateInvitation,
-    copyLink,
     init,
+    generateInvitation,
     toggleLanguageFields,
-    changeTheme,
-    previewMusic
+    autoTranslate,
+    previewMusic,
+    toggleLanguage,
+    editInvitation
   };
 })();
 

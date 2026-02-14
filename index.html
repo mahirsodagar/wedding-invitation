@@ -95,12 +95,13 @@
       integrity="sha256-MBffSnbbXwHCuZtgPYiwMQbfE7z+GOZ7fBPCNB06Z98="
       crossorigin="anonymous"
     />
-    <link
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css"
       integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU="
       crossorigin="anonymous"
-    />
+    /> -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
@@ -593,7 +594,7 @@
         ></path>
       </svg>
 
-      <!-- Tie and Venue -->
+      <!-- Time and Venue -->
       <section class="dark-section" id="date">
         <div class="container">
           <div class="text-center">
@@ -662,6 +663,9 @@
             </div>
 
             <div class="py-2" data-aos="fade-up" data-aos-duration="1500">
+               <h1 class="font-esthetic" style="font-size: 2rem" id="venue">
+                 Venue
+                </h1>
               <a
                 class="btn btn-outline-light btn-sm shadow rounded-pill px-3 my-2"
                 target="_blank"
@@ -795,6 +799,28 @@
       data-url="./assets/music/sound.mp3"
     >
       <i class="fa-solid fa-circle-pause"></i>
+    </button>
+
+    <!-- Language Button -->
+    <button
+      type="button"
+      id="language-button"
+      style="display: none"
+      class="btn btn-light btn-sm rounded-circle btn-language"
+      onclick="appLogic.toggleLanguage()"
+    >
+      <i class="fa-solid fa-language"></i>
+    </button>
+
+   <!-- Edit Button -->
+    <button
+      type="button"
+      id="edit-button"
+      style="display: none"
+      class="btn btn-light btn-sm rounded-circle btn-edit"
+      onclick="appLogic.editInvitation()"
+    >
+      <i class="fa-solid fa-pen-to-square"></i>
     </button>
 
     <!-- Loading page -->

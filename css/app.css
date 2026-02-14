@@ -114,6 +114,32 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     background-color: var(--surface-color) !important;
     color: var(--text-color) !important;
     border: none;
+    height: 2rem;
+    width: 2rem;
+}
+
+.btn-language {
+    position: fixed;
+    bottom: 16vh; /* Above music button */
+    right: 2vh;
+    z-index: 1055;
+    background-color: var(--surface-color) !important;
+    color: var(--text-color) !important;
+    border: none;
+    height: 2rem;
+    width: 2rem;
+}
+
+.btn-edit {
+    position: fixed;
+    bottom: 23vh; /* Above language button */
+    right: 2vh;
+    z-index: 1055;
+    background-color: var(--surface-color) !important;
+    color: var(--text-color) !important;
+    border: none;
+    height: 2rem;
+    width: 2rem;
 }
 
 .loading-page {
