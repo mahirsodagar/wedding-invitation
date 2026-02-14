@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id" data-bs-theme="dark">
   <head>
     <!-- Common Tag -->
@@ -7,36 +7,48 @@
     <title>Wedding Invitation</title>
 
     <!-- SEO Tag -->
-    <meta name="author" content="mahir_sodagar" />
+    <meta name="author" content="Mahir Sodagar" />
     <meta name="language" content="English" />
-    <meta name="robots" content="all, max-image-preview:large" />
-    <meta name="googlebot" content="all, max-image-preview:large" />
-    <meta name="title" content="Wedding Invitation" />
-    <meta name="description" content="Wedding Invitation" />
-    <meta property="og:title" content="Wedding Invitation" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large" />
+    <meta
+      name="description"
+      content="With the blessings of Allah, you are warmly invited to the Nikah ceremony of [Bride Name] and [Groom Name]. View wedding details, venue, schedule, and RSVP online."
+    />
+
+    <meta
+      name="keywords"
+      content="Muslim Wedding Invitation, Nikah Ceremony, Walima Reception, Islamic Wedding, Online Wedding Card, [Bride Name], [Groom Name]"
+    />
+
+    <!-- Open Graph (WhatsApp / Facebook / Social Sharing) -->
+    <meta
+      property="og:title"
+      content="Nikah Invitation | [Bride Name] & [Groom Name]"
+    />
+
     <meta
       property="og:description"
-      content="Wedding Invitation"
+      content="Join us in celebrating the blessed Nikah of [Bride Name] & [Groom Name]. Tap to view ceremony details and RSVP."
     />
+
     <meta property="og:image" content="./assets/images/favicon-32x32.png" />
+
     <meta property="og:image:type" content="image/jpeg" />
-    <meta
-      property="og:image:alt"
-      content="Wedding Invitation"
-    />
+    <meta property="og:image:alt" content="Wedding Invitation" />
+
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="id_ID" />
-    <meta
-      property="og:site_name"
-      content="Wedding Invitation"
-    />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:site_name" content="Wedding Invitation" />
+    <!-- <meta property="og:url" content="https://yourdomain.com/" /> -->
+
+    <!-- Optional but Recommended -->
+    <meta name="theme-color" content="#804953" />
+    <link rel="icon" href="/favicon.ico" />
 
     <!-- Appearance -->
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta
-      name="apple-mobile-web-app-title"
-      content="Wedding Invitation"
-    />
+    <meta name="apple-mobile-web-app-title" content="Wedding Invitation" />
     <meta name="color-scheme" content="dark" />
     <link
       rel="shortcut icon"
@@ -95,7 +107,13 @@
       integrity="sha256-MBffSnbbXwHCuZtgPYiwMQbfE7z+GOZ7fBPCNB06Z98="
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css"
@@ -157,7 +175,14 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" onclick="appLogic.copyLink(); return false;">
+          <a
+            class="nav-link"
+            href="#"
+            onclick="
+              appLogic.copyLink();
+              return false;
+            "
+          >
             <i class="fa-solid fa-share-nodes"></i>
             <span class="d-block" style="font-size: 0.7rem">Share</span>
           </a>
@@ -166,240 +191,761 @@
     </nav>
 
     <!-- Generation Form -->
-    <section id="generation-form" class="container min-vh-100 d-flex flex-column justify-content-center align-items-center py-5" style="display: none;">
-      <div class="card shadow-lg p-4 rounded-4" style="background-color: rgba(234, 219, 200, 0.9); border: 2px solid #804953; max-width: 600px; width: 100%;">
+    <section
+      id="generation-form"
+      class="container min-vh-100 d-flex flex-column justify-content-center align-items-center py-5"
+      style="display: none"
+    >
+      <div
+        class="card shadow-lg p-4 rounded-4"
+        style="
+          background-color: rgba(234, 219, 200, 0.9);
+          border: 2px solid #804953;
+          max-width: 600px;
+          width: 100%;
+        "
+      >
         <div class="text-center mb-4">
-          <h1 class="font-esthetic" style="font-size: 2.5rem;">Create Invitation</h1>
-          <p class="text-dark">Fill in the details to generate a custom wedding invitation link.</p>
+          <h1 class="font-esthetic" style="font-size: 2.5rem">
+            Create Invitation
+          </h1>
+          <p class="text-dark">
+            Fill in the details to generate a custom wedding invitation link.
+          </p>
         </div>
-        
+
         <!-- Language Selector -->
         <div class="mb-4 text-center">
-             <label class="form-label text-dark fw-bold d-block">Invitation Language:</label>
-             <div class="btn-group" role="group" aria-label="Language selection">
-                  <input type="radio" class="btn-check" name="langOption" id="langEnglish" value="english" checked onchange="appLogic.toggleLanguageFields()">
-                  <label class="btn btn-outline-dark" for="langEnglish">English Only</label>
-                
-                  <input type="radio" class="btn-check" name="langOption" id="langGujarati" value="gujarati" onchange="appLogic.toggleLanguageFields()">
-                  <label class="btn btn-outline-dark" for="langGujarati">ગુજરાતી માત્ર</label>
-                
-                  <input type="radio" class="btn-check" name="langOption" id="langBoth" value="both" onchange="appLogic.toggleLanguageFields()">
-                  <label class="btn btn-outline-dark" for="langBoth">Both / બંને</label>
-            </div>
+          <label class="form-label text-dark fw-bold d-block"
+            >Invitation Language:</label
+          >
+          <div class="btn-group" role="group" aria-label="Language selection">
+            <input
+              type="radio"
+              class="btn-check"
+              name="langOption"
+              id="langEnglish"
+              value="english"
+              checked
+              onchange="appLogic.toggleLanguageFields()"
+            />
+            <label class="btn btn-outline-dark" for="langEnglish"
+              >English Only</label
+            >
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="langOption"
+              id="langGujarati"
+              value="gujarati"
+              onchange="appLogic.toggleLanguageFields()"
+            />
+            <label class="btn btn-outline-dark" for="langGujarati"
+              >ગુજરાતી માત્ર</label
+            >
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="langOption"
+              id="langBoth"
+              value="both"
+              onchange="appLogic.toggleLanguageFields()"
+            />
+            <label class="btn btn-outline-dark" for="langBoth"
+              >Both / બંને</label
+            >
+          </div>
         </div>
 
         <!-- Theme Selector -->
         <div class="mb-4 text-center">
-             <label class="form-label text-dark fw-bold d-block">Select Theme:</label>
-             <div class="d-flex flex-wrap gap-2 justify-content-center">
-                  <input type="radio" class="btn-check" name="themeOption" id="themeDefault" value="default" autocomplete="off" checked onchange="appLogic.changeTheme('default')">
-                  <label class="btn btn-outline-dark btn-sm" for="themeDefault">Classic</label>
+          <label class="form-label text-dark fw-bold d-block"
+            >Select Theme:</label
+          >
+          <div class="d-flex flex-wrap gap-2 justify-content-center">
+            <input
+              type="radio"
+              class="btn-check"
+              name="themeOption"
+              id="themeDefault"
+              value="default"
+              autocomplete="off"
+              checked
+              onchange="appLogic.changeTheme('default')"
+            />
+            <label class="btn btn-outline-dark btn-sm" for="themeDefault"
+              >Classic</label
+            >
 
-                  <input type="radio" class="btn-check" name="themeOption" id="themeSunset" value="sunset" autocomplete="off" onchange="appLogic.changeTheme('sunset')">
-                  <label class="btn btn-outline-dark btn-sm" for="themeSunset">Sunset</label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="themeOption"
+              id="themeSunset"
+              value="sunset"
+              autocomplete="off"
+              onchange="appLogic.changeTheme('sunset')"
+            />
+            <label class="btn btn-outline-dark btn-sm" for="themeSunset"
+              >Sunset</label
+            >
 
-                  <input type="radio" class="btn-check" name="themeOption" id="themeNature" value="nature" autocomplete="off" onchange="appLogic.changeTheme('nature')">
-                  <label class="btn btn-outline-dark btn-sm" for="themeNature">Nature</label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="themeOption"
+              id="themeNature"
+              value="nature"
+              autocomplete="off"
+              onchange="appLogic.changeTheme('nature')"
+            />
+            <label class="btn btn-outline-dark btn-sm" for="themeNature"
+              >Nature</label
+            >
 
-                  <input type="radio" class="btn-check" name="themeOption" id="themeModern" value="modern" autocomplete="off" onchange="appLogic.changeTheme('modern')">
-                  <label class="btn btn-outline-dark btn-sm" for="themeModern">Modern</label>
-                  
-                  <input type="radio" class="btn-check" name="themeOption" id="themeBold" value="bold" autocomplete="off" onchange="appLogic.changeTheme('bold')">
-                  <label class="btn btn-outline-dark btn-sm" for="themeBold">Bold</label>
-             </div>
+            <input
+              type="radio"
+              class="btn-check"
+              name="themeOption"
+              id="themeModern"
+              value="modern"
+              autocomplete="off"
+              onchange="appLogic.changeTheme('modern')"
+            />
+            <label class="btn btn-outline-dark btn-sm" for="themeModern"
+              >Modern</label
+            >
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="themeOption"
+              id="themeBold"
+              value="bold"
+              autocomplete="off"
+              onchange="appLogic.changeTheme('bold')"
+            />
+            <label class="btn btn-outline-dark btn-sm" for="themeBold"
+              >Bold</label
+            >
+          </div>
         </div>
 
         <!-- Music Selector -->
         <div class="mb-4 text-center">
-             <label class="form-label text-dark fw-bold d-block">Select Music:</label>
-             <div class="d-flex flex-column gap-2 align-items-center">
-                  <div class="d-flex align-items-center gap-2">
-                      <input type="radio" class="btn-check" name="musicOption" id="musicDefault" value="./assets/music/sound.mp3" checked>
-                      <label class="btn btn-outline-dark btn-sm" for="musicDefault" style="min-width: 120px;">Instrumental</label>
-                      <button type="button" class="btn btn-sm btn-dark rounded-circle" onclick="appLogic.previewMusic('./assets/music/sound.mp3')"><i class="fa-solid fa-play text-white"></i></button>
-                  </div>
+          <label class="form-label text-dark fw-bold d-block"
+            >Select Music:</label
+          >
+          <div class="d-flex flex-column gap-2 align-items-center">
+            <div class="d-flex align-items-center gap-2">
+              <input
+                type="radio"
+                class="btn-check"
+                name="musicOption"
+                id="musicDefault"
+                value="./assets/music/sound.mp3"
+                checked
+              />
+              <label
+                class="btn btn-outline-dark btn-sm"
+                for="musicDefault"
+                style="min-width: 120px"
+                >Instrumental</label
+              >
+              <button
+                type="button"
+                class="btn btn-sm btn-dark rounded-circle"
+                onclick="appLogic.previewMusic('./assets/music/sound.mp3')"
+              >
+                <i class="fa-solid fa-play text-white"></i>
+              </button>
+            </div>
 
-                  <div class="d-flex align-items-center gap-2">
-                      <input type="radio" class="btn-check" name="musicOption" id="musicSong2" value="./assets/music/ShukranAllah.mp3">
-                      <label class="btn btn-outline-dark btn-sm" for="musicSong2" style="min-width: 120px;">Shukran Allah</label>
-                      <button type="button" class="btn btn-sm btn-dark rounded-circle" onclick="appLogic.previewMusic('./assets/music/ShukranAllah.mp3')"><i class="fa-solid fa-play text-white"></i></button>
-                  </div>
+            <div class="d-flex align-items-center gap-2">
+              <input
+                type="radio"
+                class="btn-check"
+                name="musicOption"
+                id="musicSong2"
+                value="./assets/music/ShukranAllah.mp3"
+              />
+              <label
+                class="btn btn-outline-dark btn-sm"
+                for="musicSong2"
+                style="min-width: 120px"
+                >Shukran Allah</label
+              >
+              <button
+                type="button"
+                class="btn btn-sm btn-dark rounded-circle"
+                onclick="
+                  appLogic.previewMusic('./assets/music/ShukranAllah.mp3')
+                "
+              >
+                <i class="fa-solid fa-play text-white"></i>
+              </button>
+            </div>
 
-                  <div class="d-flex align-items-center gap-2">
-                      <input type="radio" class="btn-check" name="musicOption" id="musicSong3" value="./assets/music/WeddingNasheed.mp3">
-                      <label class="btn btn-outline-dark btn-sm" for="musicSong3" style="min-width: 120px;">Nasheed</label>
-                      <button type="button" class="btn btn-sm btn-dark rounded-circle" onclick="appLogic.previewMusic('./assets/music/WeddingNasheed.mp3')"><i class="fa-solid fa-play text-white"></i></button>
-                  </div>
-             </div>
+            <div class="d-flex align-items-center gap-2">
+              <input
+                type="radio"
+                class="btn-check"
+                name="musicOption"
+                id="musicSong3"
+                value="./assets/music/WeddingNasheed.mp3"
+              />
+              <label
+                class="btn btn-outline-dark btn-sm"
+                for="musicSong3"
+                style="min-width: 120px"
+                >Nasheed</label
+              >
+              <button
+                type="button"
+                class="btn btn-sm btn-dark rounded-circle"
+                onclick="
+                  appLogic.previewMusic('./assets/music/WeddingNasheed.mp3')
+                "
+              >
+                <i class="fa-solid fa-play text-white"></i>
+              </button>
+            </div>
+          </div>
         </div>
 
         <!-- Background Selector -->
         <div class="mb-4 text-center">
-             <label class="form-label text-dark fw-bold d-block">Select Couple Image:</label>
-             <div class="d-flex flex-wrap gap-2 justify-content-center">
-                  <input type="radio" class="btn-check" name="bgOption" id="bg1" value="./assets/images/bg1.png" checked>
-                  <label class="btn btn-outline-dark p-1" for="bg1">
-                      <img src="./assets/images/bg1.png" alt="Design 1" style="width: 80px; height: 120px; object-fit: cover; border-radius: 4px;">
-                  </label>
+          <label class="form-label text-dark fw-bold d-block"
+            >Select Couple Image:</label
+          >
+          <div class="d-flex flex-wrap gap-2 justify-content-center">
+            <input
+              type="radio"
+              class="btn-check"
+              name="bgOption"
+              id="bg1"
+              value="./assets/images/bg1.png"
+              checked
+            />
+            <label class="btn btn-outline-dark p-1" for="bg1">
+              <img
+                src="./assets/images/bg1.png"
+                alt="Design 1"
+                style="
+                  width: 80px;
+                  height: 120px;
+                  object-fit: cover;
+                  border-radius: 4px;
+                "
+              />
+            </label>
 
-                  <input type="radio" class="btn-check" name="bgOption" id="bg2" value="./assets/images/bg2.png">
-                  <label class="btn btn-outline-dark p-1" for="bg2">
-                      <img src="./assets/images/bg2.png" alt="Design 2" style="width: 80px; height: 120px; object-fit: cover; border-radius: 4px;">
-                  </label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="bgOption"
+              id="bg2"
+              value="./assets/images/bg2.png"
+            />
+            <label class="btn btn-outline-dark p-1" for="bg2">
+              <img
+                src="./assets/images/bg2.png"
+                alt="Design 2"
+                style="
+                  width: 80px;
+                  height: 120px;
+                  object-fit: cover;
+                  border-radius: 4px;
+                "
+              />
+            </label>
 
-                  <input type="radio" class="btn-check" name="bgOption" id="bg3" value="./assets/images/bg3.png">
-                  <label class="btn btn-outline-dark p-1" for="bg3">
-                      <img src="./assets/images/bg3.png" alt="Design 3" style="width: 80px; height: 120px; object-fit: cover; border-radius: 4px;">
-                  </label>
-                  
-                  <input type="radio" class="btn-check" name="bgOption" id="bg4" value="./assets/images/bg4.png">
-                  <label class="btn btn-outline-dark p-1" for="bg4">
-                      <img src="./assets/images/bg4.png" alt="Design 4" style="width: 80px; height: 120px; object-fit: cover; border-radius: 4px;">
-                  </label>
-             </div>
+            <input
+              type="radio"
+              class="btn-check"
+              name="bgOption"
+              id="bg3"
+              value="./assets/images/bg3.png"
+            />
+            <label class="btn btn-outline-dark p-1" for="bg3">
+              <img
+                src="./assets/images/bg3.png"
+                alt="Design 3"
+                style="
+                  width: 80px;
+                  height: 120px;
+                  object-fit: cover;
+                  border-radius: 4px;
+                "
+              />
+            </label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="bgOption"
+              id="bg4"
+              value="./assets/images/bg4.png"
+            />
+            <label class="btn btn-outline-dark p-1" for="bg4">
+              <img
+                src="./assets/images/bg4.png"
+                alt="Design 4"
+                style="
+                  width: 80px;
+                  height: 120px;
+                  object-fit: cover;
+                  border-radius: 4px;
+                "
+              />
+            </label>
+          </div>
         </div>
 
         <!-- Character Selector -->
         <div class="row mb-4">
-             <div class="col-12 mb-3 text-center">
-                 <label class="form-label text-dark fw-bold d-block">Select Groom Avatar:</label>
-                 <div class="d-flex flex-wrap gap-2 justify-content-center" style="max-height: 200px; overflow-y: auto;">
-                      <!-- Generated loop for Grooms 1-8 -->
-                      <!-- Using template literal idea in manual code for brevity, but here I must write full HTML -->
-                      <input type="radio" class="btn-check" name="groomImgOption" id="groomImg1" value="./assets/images/groom1.svg" checked>
-                      <label class="btn btn-outline-dark p-1" for="groomImg1"><img src="./assets/images/groom1.svg" style="width: 50px; height: 50px;"></label>
+          <div class="col-12 mb-3 text-center">
+            <label class="form-label text-dark fw-bold d-block"
+              >Select Groom Avatar:</label
+            >
+            <div
+              class="d-flex flex-wrap gap-2 justify-content-center"
+              style="max-height: 200px; overflow-y: auto"
+            >
+              <!-- Generated loop for Grooms 1-8 -->
+              <!-- Using template literal idea in manual code for brevity, but here I must write full HTML -->
+              <input
+                type="radio"
+                class="btn-check"
+                name="groomImgOption"
+                id="groomImg1"
+                value="./assets/images/groom1.svg"
+                checked
+              />
+              <label class="btn btn-outline-dark p-1" for="groomImg1"
+                ><img
+                  src="./assets/images/groom1.svg"
+                  style="width: 50px; height: 50px"
+              /></label>
 
-                      <input type="radio" class="btn-check" name="groomImgOption" id="groomImg2" value="./assets/images/groom2.svg">
-                      <label class="btn btn-outline-dark p-1" for="groomImg2"><img src="./assets/images/groom2.svg" style="width: 50px; height: 50px;"></label>
+              <input
+                type="radio"
+                class="btn-check"
+                name="groomImgOption"
+                id="groomImg2"
+                value="./assets/images/groom2.svg"
+              />
+              <label class="btn btn-outline-dark p-1" for="groomImg2"
+                ><img
+                  src="./assets/images/groom2.svg"
+                  style="width: 50px; height: 50px"
+              /></label>
 
-                      <input type="radio" class="btn-check" name="groomImgOption" id="groomImg3" value="./assets/images/groom3.svg">
-                      <label class="btn btn-outline-dark p-1" for="groomImg3"><img src="./assets/images/groom3.svg" style="width: 50px; height: 50px;"></label>
-                      
-                      <input type="radio" class="btn-check" name="groomImgOption" id="groomImg4" value="./assets/images/groom4.svg">
-                      <label class="btn btn-outline-dark p-1" for="groomImg4"><img src="./assets/images/groom4.svg" style="width: 50px; height: 50px;"></label>
+              <input
+                type="radio"
+                class="btn-check"
+                name="groomImgOption"
+                id="groomImg3"
+                value="./assets/images/groom3.svg"
+              />
+              <label class="btn btn-outline-dark p-1" for="groomImg3"
+                ><img
+                  src="./assets/images/groom3.svg"
+                  style="width: 50px; height: 50px"
+              /></label>
 
-                      <input type="radio" class="btn-check" name="groomImgOption" id="groomImg5" value="./assets/images/groom5.svg">
-                      <label class="btn btn-outline-dark p-1" for="groomImg5"><img src="./assets/images/groom5.svg" style="width: 50px; height: 50px;"></label>
+              <input
+                type="radio"
+                class="btn-check"
+                name="groomImgOption"
+                id="groomImg4"
+                value="./assets/images/groom4.svg"
+              />
+              <label class="btn btn-outline-dark p-1" for="groomImg4"
+                ><img
+                  src="./assets/images/groom4.svg"
+                  style="width: 50px; height: 50px"
+              /></label>
 
-                      <input type="radio" class="btn-check" name="groomImgOption" id="groomImg6" value="./assets/images/groom6.svg">
-                      <label class="btn btn-outline-dark p-1" for="groomImg6"><img src="./assets/images/groom6.svg" style="width: 50px; height: 50px;"></label>
+              <input
+                type="radio"
+                class="btn-check"
+                name="groomImgOption"
+                id="groomImg5"
+                value="./assets/images/groom5.svg"
+              />
+              <label class="btn btn-outline-dark p-1" for="groomImg5"
+                ><img
+                  src="./assets/images/groom5.svg"
+                  style="width: 50px; height: 50px"
+              /></label>
 
-                      <input type="radio" class="btn-check" name="groomImgOption" id="groomImg7" value="./assets/images/groom7.svg">
-                      <label class="btn btn-outline-dark p-1" for="groomImg7"><img src="./assets/images/groom7.svg" style="width: 50px; height: 50px;"></label>
+              <input
+                type="radio"
+                class="btn-check"
+                name="groomImgOption"
+                id="groomImg6"
+                value="./assets/images/groom6.svg"
+              />
+              <label class="btn btn-outline-dark p-1" for="groomImg6"
+                ><img
+                  src="./assets/images/groom6.svg"
+                  style="width: 50px; height: 50px"
+              /></label>
 
-                      <input type="radio" class="btn-check" name="groomImgOption" id="groomImg8" value="./assets/images/groom8.svg">
-                      <label class="btn btn-outline-dark p-1" for="groomImg8"><img src="./assets/images/groom8.svg" style="width: 50px; height: 50px;"></label>
-                 </div>
-             </div>
+              <input
+                type="radio"
+                class="btn-check"
+                name="groomImgOption"
+                id="groomImg7"
+                value="./assets/images/groom7.svg"
+              />
+              <label class="btn btn-outline-dark p-1" for="groomImg7"
+                ><img
+                  src="./assets/images/groom7.svg"
+                  style="width: 50px; height: 50px"
+              /></label>
 
-             <div class="col-12 text-center">
-                 <label class="form-label text-dark fw-bold d-block">Select Bride Avatar:</label>
-                 <div class="d-flex flex-wrap gap-2 justify-content-center" style="max-height: 200px; overflow-y: auto;">
-                      <input type="radio" class="btn-check" name="brideImgOption" id="brideImg1" value="./assets/images/bride1.svg" checked>
-                      <label class="btn btn-outline-dark p-1" for="brideImg1"><img src="./assets/images/bride1.svg" style="width: 50px; height: 50px;"></label>
+              <input
+                type="radio"
+                class="btn-check"
+                name="groomImgOption"
+                id="groomImg8"
+                value="./assets/images/groom8.svg"
+              />
+              <label class="btn btn-outline-dark p-1" for="groomImg8"
+                ><img
+                  src="./assets/images/groom8.svg"
+                  style="width: 50px; height: 50px"
+              /></label>
+            </div>
+          </div>
 
-                      <input type="radio" class="btn-check" name="brideImgOption" id="brideImg2" value="./assets/images/bride2.svg">
-                      <label class="btn btn-outline-dark p-1" for="brideImg2"><img src="./assets/images/bride2.svg" style="width: 50px; height: 50px;"></label>
+          <div class="col-12 text-center">
+            <label class="form-label text-dark fw-bold d-block"
+              >Select Bride Avatar:</label
+            >
+            <div
+              class="d-flex flex-wrap gap-2 justify-content-center"
+              style="max-height: 200px; overflow-y: auto"
+            >
+              <input
+                type="radio"
+                class="btn-check"
+                name="brideImgOption"
+                id="brideImg1"
+                value="./assets/images/bride1.svg"
+                checked
+              />
+              <label class="btn btn-outline-dark p-1" for="brideImg1"
+                ><img
+                  src="./assets/images/bride1.svg"
+                  style="width: 50px; height: 50px"
+              /></label>
 
-                      <input type="radio" class="btn-check" name="brideImgOption" id="brideImg3" value="./assets/images/bride3.svg">
-                      <label class="btn btn-outline-dark p-1" for="brideImg3"><img src="./assets/images/bride3.svg" style="width: 50px; height: 50px;"></label>
+              <input
+                type="radio"
+                class="btn-check"
+                name="brideImgOption"
+                id="brideImg2"
+                value="./assets/images/bride2.svg"
+              />
+              <label class="btn btn-outline-dark p-1" for="brideImg2"
+                ><img
+                  src="./assets/images/bride2.svg"
+                  style="width: 50px; height: 50px"
+              /></label>
 
-                      <input type="radio" class="btn-check" name="brideImgOption" id="brideImg4" value="./assets/images/bride4.svg">
-                      <label class="btn btn-outline-dark p-1" for="brideImg4"><img src="./assets/images/bride4.svg" style="width: 50px; height: 50px;"></label>
+              <input
+                type="radio"
+                class="btn-check"
+                name="brideImgOption"
+                id="brideImg3"
+                value="./assets/images/bride3.svg"
+              />
+              <label class="btn btn-outline-dark p-1" for="brideImg3"
+                ><img
+                  src="./assets/images/bride3.svg"
+                  style="width: 50px; height: 50px"
+              /></label>
 
-                      <input type="radio" class="btn-check" name="brideImgOption" id="brideImg5" value="./assets/images/bride5.svg">
-                      <label class="btn btn-outline-dark p-1" for="brideImg5"><img src="./assets/images/bride5.svg" style="width: 50px; height: 50px;"></label>
+              <input
+                type="radio"
+                class="btn-check"
+                name="brideImgOption"
+                id="brideImg4"
+                value="./assets/images/bride4.svg"
+              />
+              <label class="btn btn-outline-dark p-1" for="brideImg4"
+                ><img
+                  src="./assets/images/bride4.svg"
+                  style="width: 50px; height: 50px"
+              /></label>
 
-                      <input type="radio" class="btn-check" name="brideImgOption" id="brideImg6" value="./assets/images/bride6.svg">
-                      <label class="btn btn-outline-dark p-1" for="brideImg6"><img src="./assets/images/bride6.svg" style="width: 50px; height: 50px;"></label>
+              <input
+                type="radio"
+                class="btn-check"
+                name="brideImgOption"
+                id="brideImg5"
+                value="./assets/images/bride5.svg"
+              />
+              <label class="btn btn-outline-dark p-1" for="brideImg5"
+                ><img
+                  src="./assets/images/bride5.svg"
+                  style="width: 50px; height: 50px"
+              /></label>
 
-                      <input type="radio" class="btn-check" name="brideImgOption" id="brideImg7" value="./assets/images/bride7.svg">
-                      <label class="btn btn-outline-dark p-1" for="brideImg7"><img src="./assets/images/bride7.svg" style="width: 50px; height: 50px;"></label>
+              <input
+                type="radio"
+                class="btn-check"
+                name="brideImgOption"
+                id="brideImg6"
+                value="./assets/images/bride6.svg"
+              />
+              <label class="btn btn-outline-dark p-1" for="brideImg6"
+                ><img
+                  src="./assets/images/bride6.svg"
+                  style="width: 50px; height: 50px"
+              /></label>
 
-                      <input type="radio" class="btn-check" name="brideImgOption" id="brideImg8" value="./assets/images/bride8.svg">
-                      <label class="btn btn-outline-dark p-1" for="brideImg8"><img src="./assets/images/bride8.svg" style="width: 50px; height: 50px;"></label>
-                 </div>
-             </div>
+              <input
+                type="radio"
+                class="btn-check"
+                name="brideImgOption"
+                id="brideImg7"
+                value="./assets/images/bride7.svg"
+              />
+              <label class="btn btn-outline-dark p-1" for="brideImg7"
+                ><img
+                  src="./assets/images/bride7.svg"
+                  style="width: 50px; height: 50px"
+              /></label>
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="brideImgOption"
+                id="brideImg8"
+                value="./assets/images/bride8.svg"
+              />
+              <label class="btn btn-outline-dark p-1" for="brideImg8"
+                ><img
+                  src="./assets/images/bride8.svg"
+                  style="width: 50px; height: 50px"
+              /></label>
+            </div>
+          </div>
         </div>
 
         <form id="inviteForm" onsubmit="return false;">
           <div class="row g-3">
             <div class="col-md-6">
-              <label for="groomNameInput" class="form-label text-dark fw-bold">Groom's Name</label>
-              <input type="text" class="form-control rounded-pill" id="groomNameInput" placeholder="Ex: James" required>
-              
+              <label for="groomNameInput" class="form-label text-dark fw-bold"
+                >Groom's Name</label
+              >
+              <input
+                type="text"
+                class="form-control rounded-pill"
+                id="groomNameInput"
+                placeholder="Ex: James"
+                required
+              />
+
               <div class="guj-field d-none mt-2">
-                  <label for="groomNameGujInput" class="form-label text-dark fw-bold small">દુલ્હાનું નામ </label>
-                  <input type="text" class="form-control rounded-pill" id="groomNameGujInput" placeholder="Ex: નવાઝ" required>
+                <label
+                  for="groomNameGujInput"
+                  class="form-label text-dark fw-bold small"
+                  >દુલ્હાનું નામ
+                </label>
+                <input
+                  type="text"
+                  class="form-control rounded-pill"
+                  id="groomNameGujInput"
+                  placeholder="Ex: નવાઝ"
+                  required
+                />
               </div>
             </div>
-            
+
             <div class="col-md-6">
-              <label for="brideNameInput" class="form-label text-dark fw-bold">Bride's Name</label>
-              <input type="text" class="form-control rounded-pill" id="brideNameInput" placeholder="Ex: jennie" required>
-              
-               <div class="guj-field d-none mt-2">
-                  <label for="brideNameGujInput" class="form-label text-dark fw-bold small">દુલ્હનનું નામ </label>
-                  <input type="text" class="form-control rounded-pill" id="brideNameGujInput" placeholder="Ex: ફલકનાઝ" required>
-              </div>
-            </div>
-            
-            <div class="col-md-6">
-              <label for="groomFatherInput" class="form-label text-dark fw-bold">Groom's Father Name</label>
-              <input type="text" class="form-control rounded-pill" id="groomFatherInput" placeholder="Ex: Jordan" required>
-              
-               <div class="guj-field d-none mt-2">
-                  <label for="groomFatherGujInput" class="form-label text-dark fw-bold small">દુલ્હાના પપ્પાનું નામ </label>
-                  <input type="text" class="form-control rounded-pill" id="groomFatherGujInput" placeholder="Ex: જોરેન" required>
-              </div>
-            </div>
-            
-            <div class="col-md-6">
-              <label for="brideFatherInput" class="form-label text-dark fw-bold">Bride's Father Name</label>
-              <input type="text" class="form-control rounded-pill" id="brideFatherInput" placeholder="Ex: Jason" required>
-              
+              <label for="brideNameInput" class="form-label text-dark fw-bold"
+                >Bride's Name</label
+              >
+              <input
+                type="text"
+                class="form-control rounded-pill"
+                id="brideNameInput"
+                placeholder="Ex: jennie"
+                required
+              />
+
               <div class="guj-field d-none mt-2">
-                  <label for="brideFatherGujInput" class="form-label text-dark fw-bold small">દુલ્હનના પપ્પાનું નામ </label>
-                  <input type="text" class="form-control rounded-pill" id="brideFatherGujInput" placeholder="Ex: જાસેન" required>
+                <label
+                  for="brideNameGujInput"
+                  class="form-label text-dark fw-bold small"
+                  >દુલ્હનનું નામ
+                </label>
+                <input
+                  type="text"
+                  class="form-control rounded-pill"
+                  id="brideNameGujInput"
+                  placeholder="Ex: ફલકનાઝ"
+                  required
+                />
               </div>
             </div>
 
             <div class="col-md-6">
-              <label for="dateInput" class="form-label text-dark fw-bold">Date</label>
-              <input type="date" class="form-control rounded-pill" id="dateInput" required>
-            </div>
-             <div class="col-md-6">
-              <label for="muslimDateInput" class="form-label text-dark fw-bold">Muslim Date</label>
-              <input type="text" class="form-control rounded-pill" id="muslimDateInput" placeholder="Ex: Sunday, Dhuʻl-Qiʻdah 10, 1445">
+              <label for="groomFatherInput" class="form-label text-dark fw-bold"
+                >Groom's Father Name</label
+              >
+              <input
+                type="text"
+                class="form-control rounded-pill"
+                id="groomFatherInput"
+                placeholder="Ex: Jordan"
+                required
+              />
+
+              <div class="guj-field d-none mt-2">
+                <label
+                  for="groomFatherGujInput"
+                  class="form-label text-dark fw-bold small"
+                  >દુલ્હાના પપ્પાનું નામ
+                </label>
+                <input
+                  type="text"
+                  class="form-control rounded-pill"
+                  id="groomFatherGujInput"
+                  placeholder="Ex: જોરેન"
+                  required
+                />
+              </div>
             </div>
 
             <div class="col-md-6">
-              <label for="timeInput" class="form-label text-dark fw-bold">Wedding Start Time</label>
-              <input type="time" class="form-control rounded-pill" id="timeInput" required>
-            </div>
+              <label for="brideFatherInput" class="form-label text-dark fw-bold"
+                >Bride's Father Name</label
+              >
+              <input
+                type="text"
+                class="form-control rounded-pill"
+                id="brideFatherInput"
+                placeholder="Ex: Jason"
+                required
+              />
 
-             <div class="col-12">
-              <label for="venueInput" class="form-label text-dark fw-bold">Wedding Venue</label>
-              <textarea class="form-control rounded-4" id="venueInput" rows="2" placeholder="Ex: Public Hall" required></textarea>
-              
-               <div class="guj-field d-none mt-2">
-                  <label for="venueGujInput" class="form-label text-dark fw-bold small">લગ્નનું સ્થળ </label>
-                  <textarea class="form-control rounded-4" id="venueGujInput" rows="2" placeholder="Ex: પબલ હાલ" required></textarea>
+              <div class="guj-field d-none mt-2">
+                <label
+                  for="brideFatherGujInput"
+                  class="form-label text-dark fw-bold small"
+                  >દુલ્હનના પપ્પાનું નામ
+                </label>
+                <input
+                  type="text"
+                  class="form-control rounded-pill"
+                  id="brideFatherGujInput"
+                  placeholder="Ex: જાસેન"
+                  required
+                />
               </div>
             </div>
-            
-             <div class="col-12">
-              <label for="mapLinkInput" class="form-label text-dark fw-bold">Map Link</label>
-               <input type="url" class="form-control rounded-pill" id="mapLinkInput" placeholder="Ex: https://maps.app.goo.gl/...">
+
+            <div class="col-md-6">
+              <label for="dateInput" class="form-label text-dark fw-bold"
+                >Date</label
+              >
+              <input
+                type="date"
+                class="form-control rounded-pill"
+                id="dateInput"
+                required
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="muslimDateInput" class="form-label text-dark fw-bold"
+                >Muslim Date</label
+              >
+              <input
+                type="text"
+                class="form-control rounded-pill"
+                id="muslimDateInput"
+                placeholder="Ex: Sunday, Dhuʻl-Qiʻdah 10, 1445"
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label for="timeInput" class="form-label text-dark fw-bold"
+                >Wedding Start Time</label
+              >
+              <input
+                type="time"
+                class="form-control rounded-pill"
+                id="timeInput"
+                required
+              />
+            </div>
+
+            <div class="col-12">
+              <label for="venueInput" class="form-label text-dark fw-bold"
+                >Wedding Venue</label
+              >
+              <textarea
+                class="form-control rounded-4"
+                id="venueInput"
+                rows="2"
+                placeholder="Ex: Public Hall"
+                required
+              ></textarea>
+
+              <div class="guj-field d-none mt-2">
+                <label
+                  for="venueGujInput"
+                  class="form-label text-dark fw-bold small"
+                  >લગ્નનું સ્થળ
+                </label>
+                <textarea
+                  class="form-control rounded-4"
+                  id="venueGujInput"
+                  rows="2"
+                  placeholder="Ex: પબલ હાલ"
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="mapLinkInput" class="form-label text-dark fw-bold"
+                >Map Link</label
+              >
+              <input
+                type="url"
+                class="form-control rounded-pill"
+                id="mapLinkInput"
+                placeholder="Ex: https://maps.app.goo.gl/..."
+              />
             </div>
           </div>
 
           <div class="d-grid gap-2 mt-4">
-            <button type="button" class="btn btn-dark rounded-pill py-2 text-white" onclick="appLogic.generateInvitation()">
-                <i class="fa-solid fa-wand-magic-sparkles me-2 text-white"></i>Generate Invitation
+            <button
+              type="button"
+              class="btn btn-dark rounded-pill py-2 text-white"
+              onclick="appLogic.generateInvitation()"
+            >
+              <i class="fa-solid fa-wand-magic-sparkles me-2 text-white"></i
+              >Generate Invitation
             </button>
-             <button type="button" class="btn btn-outline-dark rounded-pill py-2" id="shareBtn" style="display: none;" onclick="appLogic.copyLink()">
-                <i class="fa-solid fa-share-nodes me-2"></i>Copy Link
+            <button
+              type="button"
+              class="btn btn-outline-dark rounded-pill py-2"
+              id="shareBtn"
+              style="display: none"
+              onclick="appLogic.copyLink()"
+            >
+              <i class="fa-solid fa-share-nodes me-2"></i>Copy Link
             </button>
           </div>
         </form>
@@ -415,7 +961,7 @@
       data-bs-smooth-scroll="true"
       tabindex="0"
       id="invitation-content"
-      style="display: none;"
+      style="display: none"
     >
       <!-- Home -->
       <section class="container" id="home">
@@ -515,9 +1061,7 @@
             <h1 class="font-esthetic my-4" style="font-size: 4rem">&</h1>
 
             <div data-aos="fade-left" data-aos-duration="2000">
-              <div
-                class="img-crop border border-3 border-light shadow  mx-auto"
-              >
+              <div class="img-crop border border-3 border-light shadow mx-auto">
                 <img
                   src="./assets/images/cewe.png"
                   alt="cewe"
@@ -663,9 +1207,9 @@
             </div>
 
             <div class="py-2" data-aos="fade-up" data-aos-duration="1500">
-               <h1 class="font-esthetic" style="font-size: 2rem" id="venue">
-                 Venue
-                </h1>
+              <h1 class="font-esthetic" style="font-size: 2rem" id="venue">
+                Venue
+              </h1>
               <a
                 class="btn btn-outline-light btn-sm shadow rounded-pill px-3 my-2"
                 target="_blank"
@@ -769,7 +1313,6 @@
             <img src="./assets/images/bg1.png" alt="bg" />
           </div>
 
-
           <button
             type="button"
             class="btn btn-light shadow rounded-4 mt-4"
@@ -812,7 +1355,7 @@
       <i class="fa-solid fa-language"></i>
     </button>
 
-   <!-- New form Button -->
+    <!-- New form Button -->
     <button
       type="button"
       id="edit-button"
