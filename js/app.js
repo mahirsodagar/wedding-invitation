@@ -380,10 +380,41 @@ const appLogic = (() => {
       document.getElementById('location').innerText = data.venue;
     }
 
-    if (data.mapLink) {
-      // Find the anchor tag with the map link
-      const mapBtn = document.getElementById('lookAtGoogle').closest('a');
-      if (mapBtn) mapBtn.href = data.mapLink;
+    // Map Link Logic
+    const mapBtn = document.getElementById('mapBtn');
+    if (mapBtn) {
+      if (data.mapLink) {
+        mapBtn.href = data.mapLink;
+        mapBtn.style.display = 'inline-block';
+      } else {
+        mapBtn.style.display = 'none';
+      }
+    }
+
+    // Google Calendar Logic
+    const calendarBtn = document.getElementById('calendarBtn');
+    if (calendarBtn && data.date && data.time) {
+      try {
+        const startDate = new Date(`${data.date}T${data.time}`);
+        const endDate = new Date(startDate.getTime() + (4 * 60 * 60 * 1000)); // +4 hours
+
+        const formatDate = (date) => {
+          return date.toISOString().replace(/-|:|\.\d\d\d/g, "");
+        };
+
+        const startStr = formatDate(startDate);
+        const endStr = formatDate(endDate);
+
+        const title = `Wedding: ${data.groom} & ${data.bride}`;
+        const details = `Join us for the wedding ceremony of ${data.groom} and ${data.bride}.`;
+        const location = data.venue || "";
+
+        const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startStr}/${endStr}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`;
+
+        calendarBtn.href = calendarUrl;
+      } catch (e) {
+        console.error("Error creating calendar link", e);
+      }
     }
 
     // Background Image
