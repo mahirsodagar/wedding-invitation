@@ -1,5 +1,50 @@
+:root {
+    /* Palette 1 (Default) */
+    --bg-color: #EADBC8;
+    --accent-color: #804953;
+    --text-color: #30060E;
+    --secondary-color: #ECD4B9;
+    --surface-color: #FFFFFF;
+}
+
+[data-theme="sunset"] {
+    /* Palette 2 (User's second Palette 1) */
+    --bg-color: #F5E7B2;
+    --accent-color: #973131; /* Swapped for contrast */
+    --text-color: #5C3D2E;
+    --secondary-color: #F9D689;
+    --surface-color: #FFF6DA;
+}
+
+[data-theme="nature"] {
+    /* Palette 3 (User's Custom Nature) */
+    --bg-color: #A2B38B;
+    --accent-color: #064420;
+    --text-color: #2F3E2C;
+    --secondary-color: #E4E9BE;
+    --surface-color: #FAFDD6;
+}
+
+[data-theme="modern"] {
+    /* Palette 4 (User's Palette 3) */
+    --bg-color: #F3E8DF;
+    --accent-color: #57595B; /* Swapped for contrast (Dark on Light) */
+    --text-color: #4B4B4B;
+    --secondary-color: #E8D1C5;
+    --surface-color: #FFFFFF;
+}
+
+[data-theme="bold"] {
+    /* Palette 5 (User's Custom Bold) */
+    --bg-color: #005461;
+    --accent-color: #3BC1A8;
+    --text-color: #FFFFFF;
+    --secondary-color: #249E94;
+    --surface-color: #0C7779;
+}
+
 * {
-    color: #30060e !important;
+    color: var(--text-color) !important;
 }
 
 html {
@@ -11,21 +56,29 @@ body {
     padding: 0 !important;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    background-color: #EADBC8 !important;
+    background-color: var(--bg-color) !important;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 body::-webkit-scrollbar {
     display: none;
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);   
+}
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
 .font-esthetic {
     font-family: 'Sacramento', Tangerine !important;
-    color: #804953 !important;
+    color: var(--accent-color) !important;
 }
 
 .font-arabic {
     font-family: 'Noto Naskh Arabic', serif !important;
-    color: #804953 !important;
+    color: var(--accent-color) !important;
 }
 
 .img-crop {
@@ -33,6 +86,9 @@ body::-webkit-scrollbar {
     height: min(14rem, 90vw);
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
     border-radius: 50%;
 }
 
@@ -44,11 +100,20 @@ body::-webkit-scrollbar {
     /* filter: drop-shadow(2px 2px 6px #eee); */
 }
 
+.bride-groom-img {
+  width: 20rem !important;
+  height: 20rem !important;
+  object-fit: cover !important;
+}
+
 .btn-music {
     position: fixed;
     bottom: 9vh;
     right: 2vh;
     z-index: 1055;
+    background-color: var(--surface-color) !important;
+    color: var(--text-color) !important;
+    border: none;
 }
 
 .loading-page {
@@ -62,7 +127,7 @@ body::-webkit-scrollbar {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-color: #EADBC8;
+    background-color: var(--bg-color);
     z-index: 1056 !important;
 }
 
@@ -73,15 +138,17 @@ body::-webkit-scrollbar {
 .mouse-animation {
     padding: 0.25rem 0.625rem;
     height: 2rem;
-    border: 0.1rem solid #804953;
+    border: 0.1rem solid var(--accent-color);
     border-radius: 1.4rem;
     opacity: 0.75;
     box-sizing: content-box;
+    transition: border-color 0.5s ease;
 }
 
 svg path {
-    fill: #EADBC8 !important;
-    filter: drop-shadow(2px 4px 6px #EADBC8) drop-shadow(2px -4px 6px #EADBC8) drop-shadow(24px 25px 53px #f9f7f88f) drop-shadow(24px -25px 53px #f9f7f88f);
+    fill: var(--bg-color) !important;
+    filter: drop-shadow(2px 4px 6px var(--bg-color)) drop-shadow(2px -4px 6px var(--bg-color)) drop-shadow(24px 25px 53px #f9f7f88f) drop-shadow(24px -25px 53px #f9f7f88f);
+    transition: fill 0.5s ease;
 }
 
 @keyframes scroll {
@@ -104,7 +171,7 @@ svg path {
     width: 0.25rem;
     height: 0.625rem;
     border-radius: 25%;
-    background-color: #804953;
+    background-color: var(--accent-color);
     animation-name: scroll;
     animation-duration: 2.5s;
     animation-timing-function: linear;
@@ -112,21 +179,86 @@ svg path {
 }
 
 .dark-section {
-    background-color: #EADBC8 !important;
+    background-color: var(--bg-color) !important;
     margin-top: -0.4rem;
     margin-bottom: -0.4rem;
+    transition: background-color 0.5s ease;
 }
 
 footer {
-    background-color: #EADBC8 !important;
+    background-color: var(--bg-color) !important;
     margin-top: -0.4rem;
     padding-bottom: 4rem;
+    transition: background-color 0.5s ease;
 }
 .samll-font h2{
     font-size: 12px;
 }
 
 .navigation-bar{
-    background-color: #ecd4b999;
+    background-color: color-mix(in srgb, var(--secondary-color), transparent 40%);
     backdrop-filter: blur(3px);
+    transition: background-color 0.5s ease;
+}
+
+/* Generation Form Styles */
+#generation-form .card {
+    backdrop-filter: blur(10px);
+    background-color: color-mix(in srgb, var(--surface-color), transparent 20%) !important;
+    border: 2px solid var(--accent-color) !important;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+#generation-form .form-control {
+    background-color: color-mix(in srgb, var(--surface-color), transparent 20%);
+    border: 1px solid var(--accent-color);
+    color: var(--text-color);
+}
+
+#generation-form .form-control:focus {
+    background-color: var(--surface-color);
+    box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--accent-color), transparent 75%);
+    border-color: var(--accent-color);
+}
+
+#generation-form .form-control::placeholder {
+    color: color-mix(in srgb, var(--text-color), transparent 40%);
+}
+
+#generation-form label {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    color: var(--text-color);
+}
+
+.text-dark {
+    color: var(--text-color) !important;
+}
+
+.btn-dark {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--surface-color) !important;
+}
+
+.btn-light {
+    background-color: var(--surface-color);
+    border-color: var(--accent-color);
+    color: var(--accent-color) !important;
+}
+
+.btn-dark:hover {
+    background-color: color-mix(in srgb, var(--accent-color), black 10%);
+    border-color: color-mix(in srgb, var(--accent-color), black 10%);
+}
+
+.btn-outline-dark {
+    color: #FFFFFF;
+    border-color: var(--accent-color);
+}
+
+ .btn-check:checked + .btn-outline-dark {
+    background-color: var(--accent-color);
+    color: #ffffff !important;
+    border-color: var(--accent-color);
 }
