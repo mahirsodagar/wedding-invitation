@@ -866,7 +866,8 @@ const appLogic = (() => {
     autoTranslate,
     previewMusic,
     toggleLanguage,
-    editInvitation
+    editInvitation,
+    changeTheme
   };
 })();
 
