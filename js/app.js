@@ -172,6 +172,8 @@ const util = (() => {
 
     // Use dynamic data if available, otherwise fall back to static
     const data = window.weddingData || {};
+    const date = await translateToGujarati(data.date)
+    const muslimDate = await translateToGujarati(data.muslimDate)
 
     if (lang === "GUJ") {
       document.getElementById("weddingTitle").innerHTML = "લગ્નનું આમંત્રણ";
@@ -183,11 +185,11 @@ const util = (() => {
       document.getElementById("saveDate").innerHTML =
         "તારીખ સાચવવા માટે અહીં ક્લિક કરો";
       // Date logic - if we have it
-      document.getElementById("dateTitle").innerHTML = "રવિવાર, 19 મે, 2024"; // Keep static or formatting logic needed? 
+      document.getElementById("dateTitle").innerHTML = date; // Keep static or formatting logic needed? 
       // The user didn't ask for dynamic date translation, but we can try if we want. 
       // For now, let's stick to names as requested.
 
-      document.getElementById("dateTitleMuslim").innerHTML = data.muslimDate || "રવિવાર, 10 જિલકાદ, 1445"; // Use muslim date from params if there
+      document.getElementById("dateTitleMuslim").innerHTML = muslimDate || "રવિવાર, 10 જિલકાદ, 1445"; // Use muslim date from params if there
 
       document.getElementById("salamTitle").innerHTML =
         "અસલામુઅલૈકુમ વરહમતુલ્લાહી વબરકાતુહુ";
@@ -216,6 +218,7 @@ const util = (() => {
         "organizeEventTitle"
       ).innerHTML = `અલ્લાહ સુબાનાહુ વ તઆલાની દયા ઈચ્છાથી અમે ઇવેન્ટનું આયોજન કરીશું:`;
       document.getElementById("startAt").innerHTML = `લગ્ન શરૂ થવાનો સમય`;
+      document.getElementById("venue").innerHTML = `લગ્નનું સરનામું`;
       document.getElementById(
         "lookAtGoogle"
       ).innerHTML = `ગૂગલ મેપ્સ માં લોકેશન જુઓ`;
@@ -839,6 +842,7 @@ const appLogic = (() => {
     const params = getUrlParams();
     const formSection = document.getElementById('generation-form');
     const invitationContent = document.getElementById('invitation-content');
+    const navbar = document.querySelector('.navigation-bar');
     const cursor = document.querySelector('.custom-cursor');
 
     // window.addEventListener('mousemove', (e) => {
@@ -852,6 +856,7 @@ const appLogic = (() => {
     if (hasData) {
       formSection.classList.add('d-none');
       invitationContent.style.display = 'block';
+      navbar.style.display = 'block';
       populateData(params);
 
       const hasGujaratiData = params.groomGuj || params.brideGuj;
