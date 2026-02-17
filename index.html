@@ -147,6 +147,10 @@
   </head>
 
   <body style="overflow-y: hidden">
+    <!-- <div class="custom-cursor"></div> -->
+    <!-- Star Dust Canvas -->
+    <canvas id="stardust-canvas"></canvas>
+
     <!-- Navbar Bottom -->
     <nav
       class="navbar navigation-bar navbar-light navbar-expand fixed-bottom rounded-top-4 p-0"
@@ -982,10 +986,16 @@
           </div>
 
           <h1 class="font-esthetic my-4" style="font-size: 3rem" id="brideName">
-            James & Jennie
+            James
+            <img
+              src="./assets/images/wedding-rings.png"
+              class="icon-rings"
+              alt="&"
+            />
+            Jennie
           </h1>
           <h4 id="dateTitle">Sunday, May 19, 2024</h4>
-          <h4 id="dateTitleMuslim">Sunday, Dhuʻl-Qiʻdah 10, 1445</h4>
+          <h4 id="dateTitleMuslim">Itwaar, Dhuʻl-Qiʻdah 10, 1445</h4>
           <a
             class="btn btn-outline-light btn-sm shadow rounded-pill px-3 my-2"
             target="_blank"
@@ -1247,7 +1257,7 @@
             data-aos-duration="1500"
             id="greatingTitle"
           >
-            IIt will be our honour and happiness to greet you with us and your
+            It will be our honour and happiness to greet you with us and your
             presenece will surely be of great pleasure to us.
           </p>
 
@@ -1328,40 +1338,43 @@
       </div>
     </div>
 
-    <!-- Audio Button -->
-    <button
-      type="button"
-      id="music-button"
-      style="display: none"
-      class="btn btn-light btn-sm rounded-circle btn-music"
-      onclick="util.play(this)"
-      data-status="true"
-      data-url="./assets/music/sound.mp3"
-    >
-      <i class="fa-solid fa-circle-pause"></i>
-    </button>
+    <!-- utils Button -->
+    <div class="utils-btn">
+      <!-- New form Button -->
+      <button
+        type="button"
+        id="edit-button"
+        style="display: none"
+        class="btn btn-light btn-sm rounded-circle btn-edit"
+        onclick="appLogic.editInvitation()"
+      >
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button>
 
-    <!-- Language Button -->
-    <button
-      type="button"
-      id="language-button"
-      style="display: none"
-      class="btn btn-light btn-sm rounded-circle btn-language"
-      onclick="appLogic.toggleLanguage()"
-    >
-      <i class="fa-solid fa-language"></i>
-    </button>
+      <!-- Language Button -->
+      <button
+        type="button"
+        id="language-button"
+        style="display: none"
+        class="btn btn-light btn-sm rounded-circle btn-language"
+        onclick="appLogic.toggleLanguage()"
+      >
+        <i class="fa-solid fa-language"></i>
+      </button>
 
-    <!-- New form Button -->
-    <button
-      type="button"
-      id="edit-button"
-      style="display: none"
-      class="btn btn-light btn-sm rounded-circle btn-edit"
-      onclick="appLogic.editInvitation()"
-    >
-      <i class="fa-solid fa-pen-to-square"></i>
-    </button>
+      <!-- Audio Button -->
+      <button
+        type="button"
+        id="music-button"
+        style="display: none"
+        class="btn btn-light btn-sm rounded-circle btn-music"
+        onclick="util.play(this)"
+        data-status="true"
+        data-url="./assets/music/sound.mp3"
+      >
+        <i class="fa-solid fa-circle-pause"></i>
+      </button>
+    </div>
 
     <!-- Loading page -->
     <div class="loading-page" id="loading" style="opacity: 1">

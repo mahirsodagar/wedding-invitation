@@ -307,6 +307,84 @@ const audio = (() => {
   };
 })();
 
+const stardust = (() => {
+  let canvas, ctx, animationFrame;
+  let particles = [];
+  const particleCount = window.innerWidth < 768 ? 30 : 60; // Fewer particles on mobile
+
+  class Particle {
+    constructor() {
+      this.reset();
+    }
+
+    reset() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 2 + 0.5; // Size between 0.5 and 2.5
+      this.speedY = Math.random() * 0.5 + 0.1; // Float Up/Down speed
+      this.speedX = (Math.random() - 0.5) * 0.5; // Slight drift
+      this.opacity = Math.random() * 0.5 + 0.2; // Initial opacity
+      this.fade = Math.random() > 0.5 ? 0.005 : -0.005; // Twinkle effect
+      this.color = Math.random() > 0.8 ? '255, 215, 0' : '255, 255, 255'; // Gold or White
+    }
+
+    update() {
+      this.y -= this.speedY; // Move upwards
+      this.x += this.speedX;
+
+      // Wrap around
+      if (this.y < 0) this.y = canvas.height;
+      if (this.x > canvas.width) this.x = 0;
+      if (this.x < 0) this.x = canvas.width;
+
+      // Twinkle
+      this.opacity += this.fade;
+      if (this.opacity > 0.8 || this.opacity < 0.2) {
+        this.fade = -this.fade;
+      }
+    }
+
+    draw() {
+      ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  const init = () => {
+    canvas = document.getElementById('stardust-canvas');
+    if (!canvas) return;
+
+    ctx = canvas.getContext('2d');
+    resize();
+    window.addEventListener('resize', resize);
+
+    particles = [];
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    animate();
+  };
+
+  const resize = () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  };
+
+  const animate = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+    animationFrame = requestAnimationFrame(animate);
+  };
+
+  return { init };
+})();
+
 const appLogic = (() => {
   const getUrlParams = () => {
     const params = new URLSearchParams(window.location.search);
@@ -343,7 +421,7 @@ const appLogic = (() => {
     }
 
     if (data.groom && data.bride) {
-      document.getElementById('brideName').innerHTML = `${data.groom} & ${data.bride}`;
+      document.getElementById('brideName').innerHTML = `${data.groom} <img src="./assets/images/wedding-rings.png" class="icon-rings" alt="&" /> ${data.bride}`;
       document.getElementById('sonName').innerText = `${data.groom}`;
       document.getElementById('daughterName').innerText = `${data.bride}`;
 
@@ -628,7 +706,12 @@ const appLogic = (() => {
 
     window.history.pushState({ path: newUrl }, '', newUrl);
 
+    window.history.pushState({ path: newUrl }, '', newUrl);
+
     init();
+    stardust.init();
+
+    // Explicitly ensure welcome screen is shown
 
     // Explicitly ensure welcome screen is shown
     const welcomePage = document.getElementById('welcome');
@@ -647,14 +730,14 @@ const appLogic = (() => {
     const data = window.weddingData || {};
 
     document.getElementById("weddingTitle").innerHTML = "Wedding Invitation";
-    document.getElementById("brideName").innerHTML = `${data.groom} & ${data.bride}`;
+    document.getElementById("brideName").innerHTML = `${data.groom} <img src="./assets/images/wedding-rings.png" class="icon-rings" alt="&" /> ${data.bride}`;
     document.getElementById("saveDate").innerHTML = "Save The Date";
 
     if (data.date) {
       document.getElementById('dateTitle').innerText = formatDate(data.date);
     }
 
-    document.getElementById("dateTitleMuslim").innerText = data.muslimDate || "Sunday, Dhuʻl-Qiʻdah 10, 1445";
+    document.getElementById("dateTitleMuslim").innerText = data.muslimDate || "Itwaar, Dhuʻl-Qiʻdah 10, 1445";
 
     document.getElementById("salamTitle").innerHTML = "Assalamualaikum Warahmatullahi Wabarakatuh";
     document.getElementById("respectTitle").innerHTML = "With all due respect. We invite you and your family. Please attend our wedding event and give us opportunity to warmly serve you:";
@@ -692,7 +775,8 @@ const appLogic = (() => {
 
     const groomGuj = data.groomGuj || "";
     const brideGuj = data.brideGuj || "";
-    document.getElementById("brideName").innerHTML = `${groomGuj} <br>&<br> ${brideGuj}`;
+    // Using image even for Gujarati if layout permits, otherwise keep text or <br> structure with image
+    document.getElementById("brideName").innerHTML = `${groomGuj} <img src="./assets/images/wedding-rings.png" class="icon-rings" alt="&" /> ${brideGuj}`;
 
     document.getElementById("saveDate").innerHTML = "તારીખ સાચવવા માટે અહીં ક્લિક કરો";
     document.getElementById("dateTitle").innerHTML = "રવિવાર, 19 મે, 2024"; // Fallback static? Or date logic? Keeping static as per original util.
@@ -749,10 +833,18 @@ const appLogic = (() => {
     });
   };
 
+
+
   const init = () => {
     const params = getUrlParams();
     const formSection = document.getElementById('generation-form');
     const invitationContent = document.getElementById('invitation-content');
+    const cursor = document.querySelector('.custom-cursor');
+
+    // window.addEventListener('mousemove', (e) => {
+    //   cursor.style.left = e.clientX + 'px';
+    //   cursor.style.top = e.clientY + 'px';
+    // });
 
     // Check if we have ANY data to show invitation
     const hasData = (params.groom && params.bride) || (params.groomGuj && params.brideGuj);
@@ -832,8 +924,27 @@ const appLogic = (() => {
             year: 'numeric'
           }).format(date);
 
+          // Map English weekdays to Urdu transliteration
+          const urduWeekdays = {
+            'Monday': 'Peer',
+            'Tuesday': 'Mangal',
+            'Wednesday': 'Budh',
+            'Thursday': 'Jumeraat',
+            'Friday': 'Juma',
+            'Saturday': 'Hafta',
+            'Sunday': 'Itwaar'
+          };
+
+          let formattedDate = hijriDateWithDay;
+          for (const [english, urdu] of Object.entries(urduWeekdays)) {
+            if (formattedDate.toLowerCase().includes(english.toLowerCase())) {
+              formattedDate = formattedDate.replace(english, urdu);
+              break;
+            }
+          }
+
           // Remove "AH" if present and trim
-          muslimDateInput.value = hijriDateWithDay.replace(/AH|Ah/g, '').trim();
+          muslimDateInput.value = formattedDate.replace(/AH|Ah/g, '').trim();
         }
       });
     }
@@ -867,10 +978,12 @@ const appLogic = (() => {
     previewMusic,
     toggleLanguage,
     editInvitation,
-    changeTheme
+    changeTheme,
+    copyLink
   };
 })();
 
 window.addEventListener('load', () => {
+  stardust.init();
   appLogic.init();
 });
