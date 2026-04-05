@@ -78,12 +78,19 @@ const util = (() => {
   };
 
   const timer = () => {
-    let countDownDate = new Date(
-      document
-        .getElementById("time-display")
-        .getAttribute("time-data")
-        .replace(" ", "T")
-    );
+    const data = window.weddingData || {};
+    let dateStr =
+      data.date && data.time
+        ? `${data.date}T${data.time}`
+        : document
+            .getElementById("time-display")
+            .getAttribute("time-data")
+            .replace(" ", "T");
+
+    let countDownDate = new Date(dateStr);
+
+    console.log(dateStr, "countDownDate");
+
     setInterval(() => {
       let distance = Math.abs(countDownDate - new Date().getTime());
 
@@ -916,7 +923,10 @@ const appLogic = (() => {
     const muslimDateInput = document.getElementById('muslimDateInput');
 
     if (dateInput && muslimDateInput) {
-      dateInput.addEventListener('change', (e) => {
+      const today = new Date().toISOString().split("T")[0];
+      dateInput.setAttribute("min", today);
+
+      dateInput.addEventListener("change", (e) => {
         if (e.target.value) {
           // Create date from YYYY-MM-DD without timezone offset issues
           const [year, month, day] = e.target.value.split('-').map(Number);
